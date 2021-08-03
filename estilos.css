@@ -1,0 +1,337 @@
+/*
+CSS : Cascade Style Sheet
+*/
+
+
+
+
+/*
+Existen 4 formas de utilizar los selectores
+
+atributo^="algo" : busca todos los elementos con el atributo seleccionado y que empiecen con una palabra
+
+atributo$="algo" : busca todos los elementos con el atributo seleccionado y que terminen con una palabra
+
+atributo*="algo" : busca todos los elementos con el atributo seleccionado y que contenga una palabra
+
+atributo="algo" : busca todos los elementos con el atributo seleccionado y que tenga exactamente una palabra
+
+*/
+
+*[title*="titulo"] {
+  color: red;
+}
+
+li[class] {
+  color: yellow;
+}
+
+.texto {
+  color: green;
+}
+
+#tres {
+  color: orange;
+}
+
+#SelecHijo > p {
+  color: firebrick;
+}
+
+#SelecHerm > h1 ~ p {
+  color: blueviolet;
+}
+
+#SelecAdy > h1 + p {
+  color: gray;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+  text-align: center;
+}
+
+/* 
+Colores : 
+
+Existen 3 tipos de definir colores
+1. Accediendo al nombre del color
+2. rgb() -> red,green,blue -> 0-255
+3. hexadecimal -> #01ab2c
+
+*/
+
+table > thead {
+  background-color: #7c837e;
+}
+
+/* 
+Margenes internos : padding
+Margenes externos : margin
+
+Lados
+left
+right
+top
+bottom
+
+ */
+
+table > tbody > tr > td {
+  /* padding-top: 15px;
+  padding-left: 30px;
+  padding-bottom: 15px;
+  padding-right: 30px; */
+
+  /* Hacemos referencia arriba y abajo, izquierda y derecha */
+  padding: 5px 0;
+
+  /* Escogemos lado por lado, siguiendo las manecillas del reloj */
+  /* padding : 18px 12px 20px 14px; */
+
+  /* Hace referencia a todos los lados */
+  /* padding : 15px; */
+}
+
+/* 
+
+umpteenth-child(enesimo hijo)
+
+n+3 afectamos con una regla, empezando por el tercer elemento
+3n afectamos con una regla, cada 3ro elemento
+2n+4 afectamos con una regla, cada 2do elemento a partir del 4
+odd : afecta con una regla, todos los elementos impares
+even : afecta con una regla, todos los elementos pares
+
+*/
+table > tbody > tr:nth-child(even) {
+  background-color: rgb(198, 207, 117);
+}
+
+ul > li:last-child {
+  color: chocolate;
+}
+
+input[type="checkbox"]:checked + label {
+  color: darkseagreen;
+  background-color: dimgrey;
+  padding: 10px;
+}
+
+input[type="radio"]:checked + label {
+  color: darkseagreen;
+  background-color: dimgrey;
+  padding: 10px;
+}
+
+#negacion > p:not([class="texto2"]) {
+  color: lightcoral;
+}
+
+#hover > h1 {
+  color: salmon;
+  font-size: 35px;
+  transition-property: color;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  transition-delay: 0.5s;
+}
+
+#hover > h1:hover {
+  color: fuchsia;
+  font-size: 55px;
+}
+
+#transiciones {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#transiciones > span {
+  background-color: grey;
+  color: white;
+}
+
+#transiciones:hover > span {
+  margin-left: 70%;
+}
+
+.lineal {
+  transition: all 3s linear;
+}
+
+.ease {
+  transition: all 3s ease;
+}
+
+.ease-in {
+  transition: all 3s ease-in;
+}
+
+.ease-out {
+  transition: all 3s ease-out;
+}
+
+.ease-in-out {
+  transition: all 3s ease-in-out;
+}
+
+.cubic-bezier {
+  transition: all 3s cubic-bezier(1, -0.5, 0.5, 1);
+}
+
+/* Investigar al menos 5 pseudoclases adicionales y utilizarlas en algun ejemplo */
+
+#pseudo > p::first-line {
+  color: crimson;
+}
+
+#pseudo > p::first-letter {
+  color: cadetblue;
+  font-size: 35px;
+}
+
+#pseudo > h1::before {
+  content: "Esto esta despues del h1";
+}
+
+#pseudo > h1::after {
+  content: "♦";
+}
+
+#pseudo > h2 {
+  text-align: center;
+}
+
+#pseudo > h2::after {
+  content: "";
+  display: block;
+  margin: auto;
+  width: 200px;
+  background-color: orange;
+  height: 2px;
+  margin-top: 10px;
+}
+
+#pseudo > input {
+  width: 200px;
+  padding: 5px;
+  border: 1px solid seagreen;
+  border-radius: 5px;
+  transition: 0.5s ease-in;
+}
+
+#pseudo > input::placeholder {
+  color: gray;
+  font-style: italic;
+}
+
+#pseudo > input::selection {
+  background-color: slateblue;
+}
+
+#pseudo > input:focus {
+  width: 300px;
+  /* 
+    posicionamiento en horizontal
+    posicionamiento en vertical
+    radio de difuminacion
+    radio de propagacion
+    color
+  */
+  box-shadow: 90px -92px 96px 101px rgba(97, 51, 97, 1);
+  transition: 0.5s ease-in;
+}
+
+#fondos {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  border: 1px dotted black;
+  /* background-image: url(https://picsum.photos/id/23/800/800);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll; */
+  /* 
+    content-box : la imagen se extiende hasta por debajo del margen
+    padding-box : hace que la imagen respete los margenes
+  */
+  /* background-clip: border-box; */
+
+  /* background-image: linear-gradient(to right, #5e2b66, #e1e5d7); */
+  /* background-image: linear-gradient(to left, #5e2b66,#974e64,#b58171,#c7b59b, #e1e5d7);
+  background-image: linear-gradient(to top, #5e2b66,#974e64,#b58171,#c7b59b, #e1e5d7); */
+  /* background-image: linear-gradient(to bottom, #5e2b66,#974e64,#b58171,#c7b59b, #e1e5d7); */
+
+  /* background-image: linear-gradient(
+    to right top,
+    #5e2b66,
+    #974e64,
+    #b58171,
+    #c7b59b,
+    #e1e5d7
+  ); */
+
+  /* background-image: linear-gradient(
+    to left bottom,
+    #5e2b66,
+    #974e64,
+    #b58171,
+    #c7b59b,
+    #e1e5d7
+  ); */
+
+  background-image: radial-gradient(
+    circle,
+    #5e2b66,
+    #974e64,
+    #b58171,
+    #c7b59b,
+    #e1e5d7
+  );
+}
+
+section#flex {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  margin: 0 auto;
+
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  /* justify-content: center; */
+  align-items: stretch;
+
+  /* align-content : Solo tendra efecto si el padre se esta dividiendo gracias a la propiedad
+  flex-wrap: wrap; */
+}
+
+.caja1 {
+  background-color: green;
+  /* align-self: flex-end; */
+  order: 3;
+  flex-grow: 1;
+}
+
+.caja2 {
+  background-color: tan;
+  order: 1;
+  flex-grow: 2;
+}
+
+.caja3 {
+  background-color: blue;
+  order: 2;
+  flex-grow: 1;
+}
+/* Investigar para que sirven estas propiedades
+flex-basis: ;
+flex-flow: ;
+flex-shrink: ;
+
+
+*/
